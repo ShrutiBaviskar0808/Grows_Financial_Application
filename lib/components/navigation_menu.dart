@@ -73,7 +73,7 @@ class _NavigationMenuState extends State<NavigationMenu> with SingleTickerProvid
           isMenuVisible: false,
         )),
         Padding(
-          padding: const EdgeInsets.fromLTRB(20, 20, 0, 30),
+          padding: const EdgeInsets.fromLTRB(20, 20, 0, 100),
           child: Column(
             children: [
 

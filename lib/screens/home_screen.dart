@@ -35,19 +35,23 @@ class _HomeScreenState extends State<HomeScreen> {
       onPopInvokedWithResult:
           (didPop, result) => nav.backClick(didPop, result, context),
       child: CommonSafeArea(
+        top: false,
+        backgroundColor: Colors.white,
         child: BackdropScaffold(
           backgroundColor: Colors.white,
-          backLayer: Builder(
+          backLayer: Container(
+            color: backgroundColor,
+            padding: EdgeInsets.only(bottom: 80),
+            child: Builder(
             builder: (context) {
-              return Container(
-                color: backgroundColor,
-                child: NavigationMenu(
+              return NavigationMenu(
                   onClose: () {
                     Backdrop.of(context).fling(); // ✅ no null crash
                   },
                 ),
               );
             },
+          ),
           ),
           frontLayerShape: const RoundedRectangleBorder(
             borderRadius: BorderRadius.zero,
