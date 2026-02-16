@@ -1,4 +1,5 @@
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:growsfinancial/components/common_safe_area.dart';
 import 'package:growsfinancial/components/custom_button.dart';
 import 'package:growsfinancial/components/custom_text_field.dart';
 import 'package:growsfinancial/controllers/auth_controller.dart';
@@ -24,9 +25,9 @@ class LoginScreen extends StatelessWidget {
         body:
             controller.showSpinner.value
                 ? controller.config.loadingView()
-                : SafeArea(
+                : CommonSafeArea(
                   top: true,
-                  bottom: false, // ✅ important
+                  bottom: false,
                   child: Column(
                     children: [
                       /// Top Blue Space

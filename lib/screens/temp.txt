@@ -221,7 +221,6 @@ class _FormStepScreenState extends State<FormStepScreen> {
             ),
           ],
         ),
-        ),
       ),
     );
   }

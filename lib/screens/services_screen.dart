@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:growsfinancial/components/common_safe_area.dart';
 import 'package:growsfinancial/components/services_raw.dart';
 import 'package:growsfinancial/controllers/services_controller.dart';
 
@@ -25,11 +26,11 @@ class _ServicesScreenState extends State<ServicesScreen> {
   @override
   Widget build(BuildContext context) {
     return Obx(
-      () =>
-           SingleChildScrollView(
-                child: controller.showSpinner.value
-                    ? controller.config.loadingView()
-                    :Column(
+      () => CommonSafeArea(
+        child: SingleChildScrollView(
+          child: controller.showSpinner.value
+              ? controller.config.loadingView()
+              : Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Padding(
@@ -68,7 +69,8 @@ class _ServicesScreenState extends State<ServicesScreen> {
                     ),
                   ],
                 ),
-              ),
+        ),
+      ),
     );
   }
 }

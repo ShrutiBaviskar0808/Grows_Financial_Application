@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:growsfinancial/components/common_safe_area.dart';
 import 'package:growsfinancial/components/custom_appbar.dart';
 import 'package:growsfinancial/components/custom_button.dart';
 import 'package:growsfinancial/components/custom_text_field.dart';
@@ -26,7 +27,8 @@ class FormT1Step1Screen extends StatelessWidget {
         child:
         controller.showSpinner.value
             ? controller.config.loadingView()
-            : SingleChildScrollView(
+            : CommonSafeArea(
+              child: SingleChildScrollView(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -840,6 +842,7 @@ class FormT1Step1Screen extends StatelessWidget {
               SizedBox(height: 20),
             ],
           ),
+        ),
         ),
       ),
     );

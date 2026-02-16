@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_awesome_select_clone/flutter_awesome_select.dart';
 import 'package:get/get.dart';
 
+import 'package:growsfinancial/components/common_safe_area.dart';
 import 'package:growsfinancial/components/custom_appbar.dart';
 import 'package:growsfinancial/components/custom_button.dart';
 import 'package:growsfinancial/components/custom_text_field.dart';
@@ -27,10 +28,11 @@ class ServiceInquiryScreen extends StatelessWidget {
           padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 20),
           child: controller.showSpinner.value
               ? controller.config.loadingView()
-              : SingleChildScrollView(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
+              : CommonSafeArea(
+                  child: SingleChildScrollView(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 8.0),
                   child: Text(
@@ -118,6 +120,7 @@ class ServiceInquiryScreen extends StatelessWidget {
             ),
           ),
         ),
+      ),
       ),
     );
   }

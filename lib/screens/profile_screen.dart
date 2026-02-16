@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
+import 'package:growsfinancial/components/common_safe_area.dart';
 import 'package:growsfinancial/components/custom_button.dart';
 import 'package:growsfinancial/components/custom_text_field.dart';
 import 'package:growsfinancial/controllers/auth_controller.dart';
@@ -31,11 +32,12 @@ class _ProfileScreenState extends State<ProfileScreen> {
     double width = MediaQuery.of(context).size.width;
 
     return Obx(
-      () =>  controller.showSpinner.value
+      () => controller.showSpinner.value
           ? controller.config.loadingView()
-          : SingleChildScrollView(
-        child: Column(
-          children: [
+          : CommonSafeArea(
+              child: SingleChildScrollView(
+                child: Column(
+                  children: [
             Column(
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.center,
@@ -235,9 +237,10 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 ),
               ],
             ),
-          ],
-        ),
-      ),
+                  ],
+                ),
+              ),
+            ),
     );
   }
 }

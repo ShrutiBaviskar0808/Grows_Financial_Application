@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
+import 'package:growsfinancial/components/common_safe_area.dart';
 import 'package:growsfinancial/components/custom_button.dart';
 import 'package:growsfinancial/components/custom_text_field.dart';
 import 'package:growsfinancial/controllers/auth_controller.dart';
@@ -50,138 +51,140 @@ class _ResetPasswordScreenState extends State<ResetPasswordScreen> {
         body:
             controller.showSpinner.value
                 ? controller.config.loadingView()
-                : SingleChildScrollView(
-                  child: Column(
-                    children: [
-                      Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: [
-                          Text(
-                            "Change Password".toUpperCase(),
-                            style: titleTextStyle.copyWith(
-                              fontSize: 26,
-                              fontWeight: boldFont,
-                              color: textColor,
+                : CommonSafeArea(
+                  child: SingleChildScrollView(
+                    child: Column(
+                      children: [
+                        Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: [
+                            Text(
+                              "Change Password".toUpperCase(),
+                              style: titleTextStyle.copyWith(
+                                fontSize: 26,
+                                fontWeight: boldFont,
+                                color: textColor,
+                              ),
                             ),
-                          ),
-                          const SizedBox(height: 20),
+                            const SizedBox(height: 20),
 
-                          CustomTextField(
-                            padding: const EdgeInsets.symmetric(
-                              horizontal: 20.0,
-                              vertical: 8.0,
-                            ),
-                            focusedBorderColor: primaryColor,
-                            borderColor: grey2,
-                            hintText: "Old Password",
-                            textController: controller.oldPasswordController,
-                            errorText: controller.oldPasswordError.value,
-                            errorColor: Colors.red,
-                            onSubmitted: controller.oldPasswordSubmit,
-                            password: controller.showOldPassword.value,
-                            hintColor: grey2,
-                            maxLines: 1,
-                            borderRadius: 50.0,
-                            keyBoardType: TextInputType.visiblePassword,
-                            leadingIcon: Icon(
-                              FontAwesomeIcons.key,
-                              color: grey2,
-                              size: 18,
-                            ),
-                            suffixIcon: IconButton(
-                              onPressed: controller.oldPasswordVisible,
-                              icon: Icon(
-                                controller.showOldPassword.value
-                                    ? Icons.visibility_off
-                                    : Icons.visibility,
+                            CustomTextField(
+                              padding: const EdgeInsets.symmetric(
+                                horizontal: 20.0,
+                                vertical: 8.0,
                               ),
-                            ),
-                          ),
-                          CustomTextField(
-                            padding: const EdgeInsets.symmetric(
-                              horizontal: 20.0,
-                              vertical: 8.0,
-                            ),
-                            focusedBorderColor: primaryColor,
-                            borderColor: grey2,
-                            hintText: "New Password",
-                            textController: controller.passwordController,
-                            errorText: controller.passwordError.value,
-                            errorColor: Colors.red,
-                            onSubmitted: controller.passwordSubmit,
-                            password: controller.showPassword.value,
-                            hintColor: grey2,
-                            maxLines: 1,
-                            borderRadius: 50.0,
-                            keyBoardType: TextInputType.visiblePassword,
-                            leadingIcon: Icon(
-                              FontAwesomeIcons.key,
-                              color: grey2,
-                              size: 18,
-                            ),
-                            suffixIcon: IconButton(
-                              onPressed: controller.passwordVisible,
-                              icon: Icon(
-                                controller.showPassword.value
-                                    ? Icons.visibility_off
-                                    : Icons.visibility,
-                              ),
-                            ),
-                          ),
-                          CustomTextField(
-                            padding: const EdgeInsets.symmetric(
-                              horizontal: 20.0,
-                              vertical: 8.0,
-                            ),
-                            focusedBorderColor: primaryColor,
-                            borderColor: grey2,
-                            hintText: "Confirm New Password",
-                            password: controller.showConfirmPassword.value,
-                            textController:
-                                controller.confirmPasswordController,
-                            errorText: controller.confirmPasswordError.value,
-                            errorColor: Colors.red,
-                            onSubmitted: controller.confirmPasswordSubmit,
-                            hintColor: grey2,
-                            maxLines: 1,
-                            borderRadius: 50.0,
-                            keyBoardType: TextInputType.visiblePassword,
-                            leadingIcon: Icon(
-                              FontAwesomeIcons.key,
-                              color: grey2,
-                              size: 18,
-                            ),
-                            suffixIcon: IconButton(
-                              onPressed: controller.confirmPasswordVisible,
-                              icon: Icon(
-                                controller.showConfirmPassword.value
-                                    ? Icons.visibility_off
-                                    : Icons.visibility,
-                              ),
-                            ),
-                          ),
-                          Padding(
-                            padding: const EdgeInsets.symmetric(
-                              horizontal: 20.0,
-                              vertical: 8.0,
-                            ),
-                            child: CustomTextButton(
-                              title: "Change",
-                              onTap: controller.updatePassword,
-                              height: 56,
-                              width: width,
-                              color: primaryColor,
+                              focusedBorderColor: primaryColor,
+                              borderColor: grey2,
+                              hintText: "Old Password",
+                              textController: controller.oldPasswordController,
+                              errorText: controller.oldPasswordError.value,
+                              errorColor: Colors.red,
+                              onSubmitted: controller.oldPasswordSubmit,
+                              password: controller.showOldPassword.value,
+                              hintColor: grey2,
+                              maxLines: 1,
                               borderRadius: 50.0,
-                              textStyle: titleTextStyle.copyWith(
-                                color: Colors.white,
-                                fontSize: 18,
+                              keyBoardType: TextInputType.visiblePassword,
+                              leadingIcon: Icon(
+                                FontAwesomeIcons.key,
+                                color: grey2,
+                                size: 18,
+                              ),
+                              suffixIcon: IconButton(
+                                onPressed: controller.oldPasswordVisible,
+                                icon: Icon(
+                                  controller.showOldPassword.value
+                                      ? Icons.visibility_off
+                                      : Icons.visibility,
+                                ),
                               ),
                             ),
-                          ),
-                        ],
-                      ),
-                    ],
+                            CustomTextField(
+                              padding: const EdgeInsets.symmetric(
+                                horizontal: 20.0,
+                                vertical: 8.0,
+                              ),
+                              focusedBorderColor: primaryColor,
+                              borderColor: grey2,
+                              hintText: "New Password",
+                              textController: controller.passwordController,
+                              errorText: controller.passwordError.value,
+                              errorColor: Colors.red,
+                              onSubmitted: controller.passwordSubmit,
+                              password: controller.showPassword.value,
+                              hintColor: grey2,
+                              maxLines: 1,
+                              borderRadius: 50.0,
+                              keyBoardType: TextInputType.visiblePassword,
+                              leadingIcon: Icon(
+                                FontAwesomeIcons.key,
+                                color: grey2,
+                                size: 18,
+                              ),
+                              suffixIcon: IconButton(
+                                onPressed: controller.passwordVisible,
+                                icon: Icon(
+                                  controller.showPassword.value
+                                      ? Icons.visibility_off
+                                      : Icons.visibility,
+                                ),
+                              ),
+                            ),
+                            CustomTextField(
+                              padding: const EdgeInsets.symmetric(
+                                horizontal: 20.0,
+                                vertical: 8.0,
+                              ),
+                              focusedBorderColor: primaryColor,
+                              borderColor: grey2,
+                              hintText: "Confirm New Password",
+                              password: controller.showConfirmPassword.value,
+                              textController:
+                                  controller.confirmPasswordController,
+                              errorText: controller.confirmPasswordError.value,
+                              errorColor: Colors.red,
+                              onSubmitted: controller.confirmPasswordSubmit,
+                              hintColor: grey2,
+                              maxLines: 1,
+                              borderRadius: 50.0,
+                              keyBoardType: TextInputType.visiblePassword,
+                              leadingIcon: Icon(
+                                FontAwesomeIcons.key,
+                                color: grey2,
+                                size: 18,
+                              ),
+                              suffixIcon: IconButton(
+                                onPressed: controller.confirmPasswordVisible,
+                                icon: Icon(
+                                  controller.showConfirmPassword.value
+                                      ? Icons.visibility_off
+                                      : Icons.visibility,
+                                ),
+                              ),
+                            ),
+                            Padding(
+                              padding: const EdgeInsets.symmetric(
+                                horizontal: 20.0,
+                                vertical: 8.0,
+                              ),
+                              child: CustomTextButton(
+                                title: "Change",
+                                onTap: controller.updatePassword,
+                                height: 56,
+                                width: width,
+                                color: primaryColor,
+                                borderRadius: 50.0,
+                                textStyle: titleTextStyle.copyWith(
+                                  color: Colors.white,
+                                  fontSize: 18,
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ],
+                    ),
                   ),
                 ),
       ),

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:growsfinancial/components/common_safe_area.dart';
 import 'package:growsfinancial/components/custom_button.dart';
 import 'package:growsfinancial/components/file_raw.dart';
 import 'package:growsfinancial/controllers/backdrop_nav_controller.dart';
@@ -41,8 +42,11 @@ class _FilesScreenState extends State<FilesScreen> {
     double width = MediaQuery.of(context).size.width;
 
     return Obx(
-      () => Stack(
-        children: [
+      () => Scaffold(
+        backgroundColor: backgroundColor,
+        body: CommonSafeArea(
+          child: Stack(
+            children: [
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -155,6 +159,8 @@ class _FilesScreenState extends State<FilesScreen> {
             ),
           ),
         ],
+      ),
+        ),
       ),
     );
   }

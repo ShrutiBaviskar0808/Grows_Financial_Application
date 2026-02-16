@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:growsfinancial/components/common_safe_area.dart';
 import 'package:growsfinancial/components/custom_appbar.dart';
 import 'package:growsfinancial/components/custom_button.dart';
 import 'package:growsfinancial/components/custom_text_field.dart';
@@ -21,10 +22,10 @@ class FormT2Step1Screen extends StatelessWidget {
         backgroundColor: backgroundColor,
         body: Padding(
           padding: const EdgeInsets.symmetric(vertical: 10.0, horizontal: 20.0),
-          child:
-              controller.showSpinner.value
-                  ? controller.config.loadingView()
-                  : SingleChildScrollView(
+          child: controller.showSpinner.value
+              ? controller.config.loadingView()
+              : CommonSafeArea(
+                  child: SingleChildScrollView(
                     child: Column(
                       children: [
                         Padding(
@@ -310,7 +311,8 @@ class FormT2Step1Screen extends StatelessWidget {
                       ],
                     ),
                   ),
+                ),
         ),
-    );
+      );
   }
 }

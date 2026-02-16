@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:growsfinancial/components/account_raw.dart';
+import 'package:growsfinancial/components/common_safe_area.dart';
 import 'package:growsfinancial/components/custom_button.dart';
 import 'package:growsfinancial/controllers/account_controller.dart';
 import 'package:growsfinancial/utils/constant.dart';
@@ -18,7 +19,8 @@ class AccountsScreen extends StatelessWidget {
       () =>
           controller.showSpinner.value
               ? controller.config.loadingView()
-              : Column(
+              : CommonSafeArea(
+                child: Column(
                 children: [
                   SingleChildScrollView(
                     child: Column(
@@ -95,6 +97,7 @@ class AccountsScreen extends StatelessWidget {
                   ),
                 ],
               ),
-    );
+            ),
+          );
   }
 }

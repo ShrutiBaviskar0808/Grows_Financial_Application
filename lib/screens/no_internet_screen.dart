@@ -1,3 +1,4 @@
+import 'package:growsfinancial/components/common_safe_area.dart';
 import 'package:growsfinancial/screens/login_screen.dart';
 import 'package:growsfinancial/screens/accounts_screen.dart';
 import 'package:growsfinancial/utils/config.dart';
@@ -22,51 +23,57 @@ class _NoInternetScreenState extends State<NoInternetScreen> {
     return Scaffold(
       extendBody: true,
       extendBodyBehindAppBar: true,
-      body: Container(
-        padding: EdgeInsets.all(MediaQuery.of(context).size.height * 0.025),
-        child: Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Image.asset(
-                "assets/images/no_internet.png",
-                width: 150,
-                height: 150,
-              ),
-              Text("Oops!", style: titleTextStyle.copyWith(fontSize: 30)),
-              const SizedBox(height: 5.0),
-              Text(
-                'No Internet Connection',
-                textAlign: TextAlign.center,
-                style: subTitleTextStyle.copyWith(
-                  fontSize: 16,
-                  fontWeight: semiBoldFont,
+      body: CommonSafeArea(
+        child: Container(
+          padding: EdgeInsets.all(MediaQuery.of(context).size.height * 0.025),
+          child: Center(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Image.asset(
+                  "assets/images/no_internet.png",
+                  width: 150,
+                  height: 150,
                 ),
-              ),
-              const SizedBox(height: 40),
-              GestureDetector(
-                onTap: () async {
-                  bool isConnected = await config.checkConnection();
-                  if (isConnected) {
-                    navigation();
-                  } else {
-                    config.showToastFailure('No Internet Connection');
-                  }
-                },
-                child: Container(
-                  decoration: BoxDecoration(
-                    shape: BoxShape.circle,
-                    color: primaryColor,
+                Text("Oops!", style: titleTextStyle.copyWith(fontSize: 30)),
+                const SizedBox(height: 5.0),
+                Text(
+                  'No Internet Connection',
+                  textAlign: TextAlign.center,
+                  style: subTitleTextStyle.copyWith(
+                    fontSize: 16,
+                    fontWeight: semiBoldFont,
                   ),
-                  padding: const EdgeInsets.all(10),
-                  child: InkWell(
-                    child: Center(
-                      child: Icon(Icons.refresh, size: 34, color: Colors.white),
+                ),
+                const SizedBox(height: 40),
+                GestureDetector(
+                  onTap: () async {
+                    bool isConnected = await config.checkConnection();
+                    if (isConnected) {
+                      navigation();
+                    } else {
+                      config.showToastFailure('No Internet Connection');
+                    }
+                  },
+                  child: Container(
+                    decoration: BoxDecoration(
+                      shape: BoxShape.circle,
+                      color: primaryColor,
+                    ),
+                    padding: const EdgeInsets.all(10),
+                    child: InkWell(
+                      child: Center(
+                        child: Icon(
+                          Icons.refresh,
+                          size: 34,
+                          color: Colors.white,
+                        ),
+                      ),
                     ),
                   ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
         ),
       ),

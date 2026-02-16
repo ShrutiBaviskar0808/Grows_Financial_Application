@@ -1,6 +1,7 @@
 import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:growsfinancial/components/common_safe_area.dart';
 import 'package:growsfinancial/components/custom_appbar.dart';
 import 'package:growsfinancial/components/custom_button.dart';
 import 'package:growsfinancial/components/upload_raw.dart';
@@ -35,10 +36,10 @@ class UploadDocumentsScreen extends StatelessWidget {
         ),
         body: Padding(
           padding: const EdgeInsets.all(16),
-          child:
-              controller.showSpinner.value
-                  ? controller.config.loadingView()
-                  : Column(
+          child: controller.showSpinner.value
+              ? controller.config.loadingView()
+              : CommonSafeArea(
+                  child: Column(
                     children: [
                       Center(
                         child: Text(
@@ -167,6 +168,7 @@ class UploadDocumentsScreen extends StatelessWidget {
                       ),
                     ],
                   ),
+                ),
         ),
       ),
     );

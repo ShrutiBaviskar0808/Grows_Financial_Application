@@ -1,5 +1,6 @@
 // ignore_for_file: use_build_context_synchronously
 import 'dart:async';
+import 'package:growsfinancial/components/common_safe_area.dart';
 import 'package:growsfinancial/screens/login_screen.dart';
 import 'package:growsfinancial/screens/no_internet_screen.dart';
 import 'package:growsfinancial/utils/config.dart';
@@ -34,22 +35,24 @@ class _SplashScreenState extends State<SplashScreen> {
     return Scaffold(
       extendBody: true,
       extendBodyBehindAppBar: true,
-      body: SizedBox(
-        width: width,
-        height: height,
-        child: Center(
-          child: Padding(
-            padding: const EdgeInsets.all(50.0),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Image.asset(
-                  "assets/images/logo.png",
-                  width: width,
-                  height: height / 1.5,
-                ),
-              ],
+      body: CommonSafeArea(
+        child: SizedBox(
+          width: width,
+          height: height,
+          child: Center(
+            child: Padding(
+              padding: const EdgeInsets.all(50.0),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Image.asset(
+                    "assets/images/logo.png",
+                    width: width,
+                    height: height / 1.5,
+                  ),
+                ],
+              ),
             ),
           ),
         ),
