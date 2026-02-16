@@ -19,6 +19,7 @@ class DocumentRequestsScreen extends StatelessWidget {
     controller.getDocumentRequest();
     return Obx(
       () => Scaffold(
+        backgroundColor: Colors.white,
         appBar: CustomAppBar(
           automaticallyImplyLeading: true,
           onTap: () {

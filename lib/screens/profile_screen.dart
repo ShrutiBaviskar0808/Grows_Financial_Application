@@ -33,7 +33,9 @@ class _ProfileScreenState extends State<ProfileScreen> {
     return Obx(
       () => controller.showSpinner.value
           ? controller.config.loadingView()
-          : SingleChildScrollView(
+          : Container(
+              color: Colors.white,
+              child: SingleChildScrollView(
               child: Column(
                 children: [
           Column(
@@ -239,6 +241,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
             ],
           ),
                 ],
+              ),
               ),
             ),
     );

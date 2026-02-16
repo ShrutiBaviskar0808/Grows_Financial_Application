@@ -20,6 +20,7 @@ class AccountsScreen extends StatelessWidget {
           controller.showSpinner.value
               ? controller.config.loadingView()
               : CommonSafeArea(
+                backgroundColor: Colors.white,
                 child: Column(
                 children: [
                   SingleChildScrollView(

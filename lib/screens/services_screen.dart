@@ -27,6 +27,7 @@ class _ServicesScreenState extends State<ServicesScreen> {
   Widget build(BuildContext context) {
     return Obx(
       () => CommonSafeArea(
+        backgroundColor: Colors.white,
         child: SingleChildScrollView(
           child: controller.showSpinner.value
               ? controller.config.loadingView()
