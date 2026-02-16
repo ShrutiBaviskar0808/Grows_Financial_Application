@@ -36,7 +36,7 @@ class _HomeScreenState extends State<HomeScreen> {
           (didPop, result) => nav.backClick(didPop, result, context),
       child: CommonSafeArea(
         child: BackdropScaffold(
-          backgroundColor: primaryColor,
+          backgroundColor: Colors.white,
           backLayer: Builder(
             builder: (context) {
               return Container(
