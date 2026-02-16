@@ -43,15 +43,14 @@ class _HomeScreenState extends State<HomeScreen> {
             color: backgroundColor,
             padding: EdgeInsets.only(bottom: 80),
             child: Builder(
-            builder: (context) {
-              return NavigationMenu(
+              builder: (context) {
+                return NavigationMenu(
                   onClose: () {
-                    Backdrop.of(context).fling(); // ✅ no null crash
+                    Backdrop.of(context).fling();
                   },
-                ),
-              );
-            },
-          ),
+                );
+              },
+            ),
           ),
           frontLayerShape: const RoundedRectangleBorder(
             borderRadius: BorderRadius.zero,
