@@ -40,7 +40,7 @@ class NavigationMenu extends StatelessWidget {
           icon: FontAwesomeIcons.userPen,
           onTap: () {
             onClose?.call();
-            Get.toNamed(ProfileScreen.id);
+            nav.openPage(ProfileScreen.id);
           },
         ),
 

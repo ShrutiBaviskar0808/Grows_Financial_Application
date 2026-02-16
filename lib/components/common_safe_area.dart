@@ -6,6 +6,7 @@ class CommonSafeArea extends StatelessWidget {
   final bool bottom;
   final bool left;
   final bool right;
+  final Color? backgroundColor;
 
   const CommonSafeArea({
     super.key,
@@ -14,16 +15,20 @@ class CommonSafeArea extends StatelessWidget {
     this.bottom = true,
     this.left = true,
     this.right = true,
+    this.backgroundColor = Colors.white,
   });
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      top: top,
-      bottom: bottom,
-      left: left,
-      right: right,
-      child: child,
+    return Container(
+      color: backgroundColor,
+      child: SafeArea(
+        top: top,
+        bottom: bottom,
+        left: left,
+        right: right,
+        child: child,
+      ),
     );
   }
 }

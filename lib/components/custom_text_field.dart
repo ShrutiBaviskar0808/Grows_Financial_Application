@@ -62,7 +62,9 @@ class CustomTextField extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: padding,
-      child: TextField(
+      child: Material(
+        color: Colors.transparent,
+        child: TextField(
         obscureText: password,
         controller: textController,
         inputFormatters: inputFormatters,
@@ -131,6 +133,7 @@ class CustomTextField extends StatelessWidget {
                   borderSide: BorderSide(color: errorColor, width: borderWidth),
                 ),
         ),
+      ),
       ),
     );
   }
@@ -304,7 +307,9 @@ class CustomCombinedTextField extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: padding,
-      child: Column(
+      child: Material(
+        color: Colors.transparent,
+        child: Column(
         children: [
           TextField(
             obscureText: password,
@@ -444,6 +449,7 @@ class CustomCombinedTextField extends StatelessWidget {
             ),
           ),
         ],
+      ),
       ),
     );
   }

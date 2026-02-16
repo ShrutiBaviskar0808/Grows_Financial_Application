@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
-import 'package:growsfinancial/components/common_safe_area.dart';
 import 'package:growsfinancial/components/custom_button.dart';
 import 'package:growsfinancial/components/custom_text_field.dart';
 import 'package:growsfinancial/controllers/auth_controller.dart';
@@ -34,14 +33,13 @@ class _ProfileScreenState extends State<ProfileScreen> {
     return Obx(
       () => controller.showSpinner.value
           ? controller.config.loadingView()
-          : CommonSafeArea(
-              child: SingleChildScrollView(
-                child: Column(
-                  children: [
-            Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
+          : SingleChildScrollView(
+              child: Column(
+                children: [
+          Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
                 const SizedBox(height: 20),
                 Text(
                   "Edit Profile".toUpperCase(),
@@ -66,7 +64,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   onSubmitted: controller.nameSubmit,
                   hintColor: grey2,
                   maxLines: 1,
-                  borderRadius: 50.0,
+                  borderRadius: 30.0,
                   keyBoardType: TextInputType.name,
                   leadingIcon: Icon(
                     FontAwesomeIcons.user,
@@ -79,7 +77,9 @@ class _ProfileScreenState extends State<ProfileScreen> {
                     horizontal: 20.0,
                     vertical: 8.0,
                   ),
-                  child: IntlPhoneField(
+                  child: Material(
+                    color: Colors.transparent,
+                    child: IntlPhoneField(
                     decoration: InputDecoration(
                       contentPadding: const EdgeInsets.symmetric(
                         horizontal: 20.0,
@@ -171,6 +171,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                     },
                     showCursor: true,
                   ),
+                  ),
                 ),
                 CustomTextField(
                   padding: const EdgeInsets.symmetric(
@@ -186,7 +187,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   onSubmitted: controller.emailSubmit,
                   hintColor: grey2,
                   maxLines: 1,
-                  borderRadius: 50.0,
+                  borderRadius: 30.0,
                   keyBoardType: TextInputType.emailAddress,
                   leadingIcon: Icon(
                     FontAwesomeIcons.envelope,
@@ -209,7 +210,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   onSubmitted: controller.sinSubmit,
                   hintColor: grey2,
                   maxLines: 1,
-                  borderRadius: 50.0,
+                  borderRadius: 30.0,
                   keyBoardType: TextInputType.text,
                   leadingIcon: Icon(
                     FontAwesomeIcons.info,
@@ -228,17 +229,16 @@ class _ProfileScreenState extends State<ProfileScreen> {
                     height: 56,
                     width: width,
                     color: primaryColor,
-                    borderRadius: 50.0,
+                    borderRadius: 30.0,
                     textStyle: titleTextStyle.copyWith(
                       color: Colors.white,
                       fontSize: 18,
                     ),
                   ),
                 ),
-              ],
-            ),
-                  ],
-                ),
+            ],
+          ),
+                ],
               ),
             ),
     );
