@@ -10,14 +10,57 @@ import 'package:growsfinancial/screens/profile_screen.dart';
 import 'package:growsfinancial/screens/reset_password_screen.dart';
 import 'package:growsfinancial/utils/constant.dart';
 
-class NavigationMenu extends StatelessWidget {
+class NavigationMenu extends StatefulWidget {
+  final VoidCallback? onClose;
+
+  const NavigationMenu({super.key, this.onClose});
+
+  @override
+  State<NavigationMenu> createState() => _NavigationMenuState();
+}
+
+class _NavigationMenuState extends State<NavigationMenu> with SingleTickerProviderStateMixin {
   final BackdropNavController nav = Get.put(BackdropNavController());
   final AuthController auth = Get.find();
   final AccountController account = Get.put(AccountController());
   final AccountController controller = Get.find();
-  final VoidCallback? onClose;
+  late AnimationController _animationController;
+  final List<Animation<Offset>> _slideAnimations = [];
 
-  NavigationMenu({super.key, this.onClose});
+  @override
+  void initState() {
+    super.initState();
+    _animationController = AnimationController(
+      vsync: this,
+      duration: const Duration(milliseconds: 1400),
+    );
+
+    for (int i = 0; i < 7; i++) {
+      _slideAnimations.add(
+        Tween<Offset>(
+          begin: const Offset(1, 0),
+          end: Offset.zero,
+        ).animate(
+          CurvedAnimation(
+            parent: _animationController,
+            curve: Interval(
+              i * 0.15,
+              0.3 + (i * 0.15),
+              curve: Curves.easeOut,
+            ),
+          ),
+        ),
+      );
+    }
+
+    _animationController.forward();
+  }
+
+  @override
+  void dispose() {
+    _animationController.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -34,81 +77,102 @@ class NavigationMenu extends StatelessWidget {
           child: Column(
             children: [
 
-        _menuButton(
+        SlideTransition(
+          position: _slideAnimations[0],
+          child: _menuButton(
           title: "Dashboard",
           icon: FontAwesomeIcons.house,
           onTap: () {
-            onClose?.call();
+            widget.onClose?.call();
             nav.openPage(AccountsScreen.id);
           },
         ),
+        ),
 
         const SizedBox(height: 14),
 
-        _menuButton(
+        SlideTransition(
+          position: _slideAnimations[1],
+          child: _menuButton(
           title: "Change Profile",
           icon: FontAwesomeIcons.userPen,
           onTap: () {
-            onClose?.call();
+            widget.onClose?.call();
             nav.openPage(ProfileScreen.id);
           },
         ),
-
-        const SizedBox(height: 14),
-
-        _menuButton(
-          title: "Change Password",
-          icon: FontAwesomeIcons.lock,
-          onTap: () {
-            onClose?.call();
-            Get.toNamed(ResetPasswordScreen.id);
-          },
         ),
 
         const SizedBox(height: 14),
 
-        _menuButton(
+        SlideTransition(
+          position: _slideAnimations[2],
+          child: _menuButton(
+          title: "Change Password",
+          icon: FontAwesomeIcons.lock,
+          onTap: () {
+            widget.onClose?.call();
+            Get.toNamed(ResetPasswordScreen.id);
+          },
+        ),
+        ),
+
+        const SizedBox(height: 14),
+
+        SlideTransition(
+          position: _slideAnimations[3],
+          child: _menuButton(
           title: "Contact Us",
           icon: FontAwesomeIcons.phone,
           onTap: () {
-            onClose?.call();
+            widget.onClose?.call();
             controller.config.launchURL(
               'https://growsfinancial.ca/contact-us/',
             );
           },
         ),
-
-        const SizedBox(height: 14),
-
-        _menuButton(
-          title: "Useful Info",
-          icon: FontAwesomeIcons.circleInfo,
-          onTap: () {
-            onClose?.call();
-            controller.config.launchURL('https://growsfinancial.ca/');
-          },
         ),
 
         const SizedBox(height: 14),
 
-        _menuButton(
+        SlideTransition(
+          position: _slideAnimations[4],
+          child: _menuButton(
+          title: "Useful Info",
+          icon: FontAwesomeIcons.circleInfo,
+          onTap: () {
+            widget.onClose?.call();
+            controller.config.launchURL('https://growsfinancial.ca/');
+          },
+        ),
+        ),
+
+        const SizedBox(height: 14),
+
+        SlideTransition(
+          position: _slideAnimations[5],
+          child: _menuButton(
           title: "Logout",
           icon: FontAwesomeIcons.powerOff,
           onTap: () {
-            onClose?.call();
+            widget.onClose?.call();
             auth.logout();
           },
+        ),
         ),
 
         const SizedBox(height: 26),
 
-        _menuButton(
+        SlideTransition(
+          position: _slideAnimations[6],
+          child: _menuButton(
           title: "Back to Home",
           icon: null,
           showArrow: true,
           onTap: () {
-            onClose?.call();
+            widget.onClose?.call();
           },
+        ),
         ),
             ],
           ),
