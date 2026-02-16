@@ -44,8 +44,8 @@ class _NavigationMenuState extends State<NavigationMenu> with SingleTickerProvid
           CurvedAnimation(
             parent: _animationController,
             curve: Interval(
-              i * 0.15,
-              0.3 + (i * 0.15),
+              i * 0.1,
+              (i * 0.1) + 0.3,
               curve: Curves.easeOut,
             ),
           ),
