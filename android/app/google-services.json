@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "306518863901",
+    "project_id": "growsfinancial-65441",
+    "storage_bucket": "growsfinancial-65441.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:306518863901:android:e6d1fcde4818cb6f0ad6f4",
+        "android_client_info": {
+          "package_name": "com.ca.growsfinancial"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAUSWtostKV-3tZ0cdmu9hvnNcGa2DPNu0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
