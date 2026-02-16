@@ -22,6 +22,7 @@ class CommonSafeArea extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       color: backgroundColor,
+      padding: EdgeInsets.only(top: MediaQuery.of(context).padding.top),
       child: SafeArea(
         top: top,
         bottom: bottom,
