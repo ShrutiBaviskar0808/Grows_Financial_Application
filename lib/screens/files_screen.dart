@@ -43,7 +43,7 @@ class _FilesScreenState extends State<FilesScreen> {
 
     return Obx(
       () => Scaffold(
-        backgroundColor: backgroundColor,
+        backgroundColor: Colors.white,
         body: CommonSafeArea(
           child: Stack(
             children: [

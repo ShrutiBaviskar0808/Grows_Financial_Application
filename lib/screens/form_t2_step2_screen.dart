@@ -22,7 +22,7 @@ class FormT2Step2Screen extends StatelessWidget {
     return Obx(
       () => Scaffold(
         appBar: CustomAppBar(),
-        backgroundColor: backgroundColor,
+        backgroundColor: Colors.white,
         body: Padding(
           padding: const EdgeInsets.symmetric(vertical: 10.0, horizontal: 20.0),
           child: controller.showSpinner.value

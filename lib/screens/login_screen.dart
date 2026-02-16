@@ -21,7 +21,7 @@ class LoginScreen extends StatelessWidget {
 
     return Obx(
       () => Scaffold(
-        backgroundColor: primaryColor, // Dark blue background
+        backgroundColor: Colors.white,
         body:
             controller.showSpinner.value
                 ? controller.config.loadingView()

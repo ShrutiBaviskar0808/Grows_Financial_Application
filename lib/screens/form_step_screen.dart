@@ -45,7 +45,7 @@ class _FormStepScreenState extends State<FormStepScreen> {
     double width = MediaQuery.of(context).size.width;
     return Obx(
       () => Scaffold(
-        backgroundColor: primaryColor,
+        backgroundColor: Colors.white,
         body: CommonSafeArea(
           child: Column(
           children: [

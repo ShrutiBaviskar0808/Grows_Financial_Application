@@ -25,7 +25,7 @@ class FormYearScreen extends StatelessWidget {
             Get.back();
           },
         ),
-        backgroundColor: backgroundColor,
+        backgroundColor: Colors.white,
         body: Padding(
           padding: const EdgeInsets.symmetric(vertical: 10.0, horizontal: 20.0),
           child:

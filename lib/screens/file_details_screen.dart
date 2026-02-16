@@ -34,7 +34,7 @@ class _FileDetailsScreenState extends State<FileDetailsScreen> {
       final formData = controller.formDataMap; // RxMap
       return Scaffold(
         appBar: CustomAppBar(automaticallyImplyLeading: true),
-        backgroundColor: backgroundColor,
+        backgroundColor: Colors.white,
         body: CommonSafeArea(
           child: SingleChildScrollView(
             child: Column(

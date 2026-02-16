@@ -409,7 +409,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
 
     return Obx(
       () => Scaffold(
-        backgroundColor: primaryColor,
+        backgroundColor: Colors.white,
         body:
             controller.showSpinner.value
                 ? controller.config.loadingView()
