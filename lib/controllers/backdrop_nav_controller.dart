@@ -37,7 +37,10 @@ class BackdropNavController extends GetxController {
     ServicesScreen.id: (a) => ServicesScreen(arguments: a),
     DocumentRequestsScreen.id: (_) => DocumentRequestsScreen(),
     ProfileScreen.id: (_) => ProfileScreen(),
-    "whatsapp_tab": (_) => const Center(child: Text("WhatsApp")),
+    "whatsapp_tab": (_) => Container(
+      color: Colors.white,
+      child: const Center(child: Text("WhatsApp")),
+    ),
   };
 
   void openPage(String key, {Map<String, dynamic>? arguments}) {
