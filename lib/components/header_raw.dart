@@ -30,8 +30,12 @@ class HeaderRaw extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       color: primaryColor,
-      margin: EdgeInsets.only(top: 40),
-      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 14),
+      padding: EdgeInsets.only(
+        top: MediaQuery.of(context).padding.top,
+        left: 16,
+        right: 16,
+        bottom: 14,
+      ),
       child: Row(
         children: [
           // left avatar
