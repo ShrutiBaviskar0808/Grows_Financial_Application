@@ -7,6 +7,7 @@ import 'package:growsfinancial/controllers/backdrop_nav_controller.dart';
 import 'package:growsfinancial/screens/accounts_screen.dart';
 import 'package:growsfinancial/screens/profile_screen.dart';
 import 'package:growsfinancial/screens/reset_password_screen.dart';
+import 'package:growsfinancial/utils/constant.dart';
 
 class NavigationMenu extends StatelessWidget {
   final BackdropNavController nav = Get.put(BackdropNavController());
@@ -17,11 +18,51 @@ class NavigationMenu extends StatelessWidget {
 
   NavigationMenu({super.key, this.onClose});
 
+  String getGreeting() {
+    final hour = DateTime.now().hour;
+    if (hour >= 6 && hour < 12) {
+      return "Good Morning !";
+    } else if (hour >= 12 && hour < 18) {
+      return "Good Afternoon !";
+    } else {
+      return "Good Evening !";
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return ListView(
       padding: const EdgeInsets.fromLTRB(20, 20, 0, 30),
       children: [
+        Padding(
+          padding: const EdgeInsets.only(left: 20, top: 20, bottom: 10),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              CircleAvatar(
+                radius: 30,
+                backgroundColor: Colors.white,
+                child: Icon(Icons.person, color: primaryColor, size: 35),
+              ),
+              const SizedBox(height: 12),
+              Obx(() => Text(
+                "Hello ${nav.userData['name'] ?? 'User'},",
+                style: titleTextStyle.copyWith(
+                  color: textColor,
+                  fontSize: 18,
+                  fontWeight: boldFont,
+                ),
+              )),
+              Text(
+                getGreeting(),
+                style: titleTextStyle.copyWith(
+                  color: grey2,
+                  fontSize: 14,
+                ),
+              ),
+            ],
+          ),
+        ),
         const SizedBox(height: 20),
 
         _menuButton(
